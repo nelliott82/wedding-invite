@@ -6,6 +6,7 @@ USE invites;
 
 CREATE TABLE `admin`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `key` TEXT NOT NULL,
   `username` TEXT NOT NULL,
   `hashword` TEXT NOT NULL
 );

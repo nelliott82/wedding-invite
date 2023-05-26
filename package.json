@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npx nodemon --watch server server/index.js",
+    "start": "webpack --mode production && npm run server"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,15 @@
     "express": "^4.18.2",
     "morgan": "^1.10.0",
     "mysql2": "^3.3.2",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.22.2",
+    "@babel/preset-env": "^7.22.2",
+    "@babel/preset-react": "^7.22.0",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
   }
 }
