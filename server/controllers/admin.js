@@ -24,7 +24,7 @@ module.exports = {
     });
   },
   delete: function (req, res) {
-    models.admin.delete(function(err, results) {
+    models.admin.delete(req.body, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
