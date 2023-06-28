@@ -6,9 +6,12 @@ const path = require('path');
 
 const port = process.env.PORT || 3000;
 
+const router = require('./routes.js');
+
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use('/invitations', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.urlencoded({extended:true}));
 

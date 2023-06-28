@@ -1,4 +1,5 @@
 const db = require('../db');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
   getAll: function (callback) {
@@ -13,7 +14,9 @@ module.exports = {
   },
   create: function (data, callback) {
     db.connection.connect();
-    const insert = `INSERT INTO invitees (email, guests) VALUES ("${data.email}", '${data.guests}')`;
+
+    const uuid = uuidv4();
+    const insert = `INSERT INTO invitees (uuid, email, guests) VALUES ('${uuid}', '${data.email}', ${data.guests})`;
     db.connection.query(insert, null, (err, results) => {
       if (err) {
         callback(err);
@@ -21,5 +24,16 @@ module.exports = {
         callback(null, results);
       }
     });
-  }
+  },
+  delete: function (data, callback) {
+    db.connection.connect();
+    const deletion = `DELETE FROM invitees WHERE id = ${data.id}`;
+    db.connection.query(deletion, null, (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  },
 };
