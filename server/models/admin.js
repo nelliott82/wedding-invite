@@ -2,6 +2,16 @@ const db = require('../db');
 const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
+  verify: function (data, callback) {
+    db.connection.connect();
+    db.connection.query(`SELECT * FROM admin WHERE uuid = ${data.uuid}`, null, (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  },
   getAll: function (callback) {
     db.connection.connect();
     db.connection.query('SELECT * FROM invitees', null, (err, results) => {
