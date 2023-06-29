@@ -12,6 +12,17 @@ module.exports = {
       }
     });
   },
+  login: function (req, res) {
+    models.admin.verify(req.body, function(err, results) {
+      if (err) {
+        res.statusCode = 400;
+        res.end(JSON.stringify(err));
+      } else {
+        res.statusCode = 200;
+        res.end(JSON.stringify(results));
+      }
+    });
+  },
   get: function (req, res) {
     models.admin.getAll(function(err, results) {
       if (err) {

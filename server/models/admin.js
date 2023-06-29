@@ -12,6 +12,16 @@ module.exports = {
       }
     });
   },
+  login: function (data, callback) {
+    db.connection.connect();
+    db.connection.query(`SELECT * FROM admin WHERE hashword = ${data.hashword}`, null, (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  },
   getAll: function (callback) {
     db.connection.connect();
     db.connection.query('SELECT * FROM invitees', null, (err, results) => {
