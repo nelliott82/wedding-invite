@@ -7,8 +7,8 @@ USE invites;
 CREATE TABLE `admin`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uuid` TEXT NOT NULL,
-  `username` TEXT NOT NULL,
-  `hashword` TEXT NOT NULL
+  `email` TEXT NOT NULL,
+  `hashword` TEXT
 );
 
 CREATE TABLE `invitees`(
@@ -16,5 +16,6 @@ CREATE TABLE `invitees`(
   `uuid` TEXT NOT NULL,
   `email` TEXT NOT NULL,
   `guests` INT NOT NULL,
-  `attending` BOOLEAN
+  `attending` BOOLEAN,
+  `songs` TEXT
 );

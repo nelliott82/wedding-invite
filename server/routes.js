@@ -11,4 +11,8 @@ router.post('/admin', controller.admin.post);
 
 router.delete('/admin', controller.admin.delete);
 
+router.get('/invitees', controller.invitees.get);
+
+router.put('/invitees', controller.invitees.put);
+
 module.exports = router;

@@ -8,18 +8,18 @@ module.exports = {
         res.end(JSON.stringify(err));
       } else {
         res.statusCode = 200;
-        res.end(JSON.stringify(results));
+        res.end(JSON.stringify(true));
       }
     });
   },
   login: function (req, res) {
-    models.admin.verify(req.body, function(err, results) {
+    models.admin.login(req.body, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
         res.statusCode = 200;
-        res.end(JSON.stringify(results));
+        res.end(JSON.stringify(true));
       }
     });
   },
@@ -35,7 +35,7 @@ module.exports = {
     });
   },
   post: function (req, res) {
-    models.admin.create(req.body, function(err, results) {
+    models.admin.insert(req.body, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
