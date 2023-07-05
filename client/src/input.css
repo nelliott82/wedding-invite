@@ -6,7 +6,7 @@
   --smaller: .75;
 }
 
-.save-the-date {
+.themeFont {
   font-family: 'Libre Baskerville', serif;
   font-size: 3vw;
   @media (max-width: 768px) {
@@ -14,12 +14,17 @@
   }
 }
 
-.header {
+.names {
   font-family: 'Parisienne', cursive;
-  font-size: 13vw;
+  font-size: 12vw;
   @media (max-width: 768px) {
     font-size: 20vw;
   }
+}
+
+#map {
+  width: 35vw;
+  height: auto;
 }
 
 li {

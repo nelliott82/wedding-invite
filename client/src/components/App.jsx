@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SaveTheDate from './cards/SaveTheDate.jsx';
+import Ceremony from './cards/Ceremony.jsx';
 
 const App = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -9,10 +10,10 @@ const App = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll, { passive: true });
     };
   }, []);
 
@@ -32,6 +33,7 @@ const App = () => {
         </div>
         <div id="content" className="flex flex-wrap flex-col pt-16 relative overflow-y justify-center content-center overflow-y-scroll">
           <SaveTheDate/>
+          <Ceremony/>
         </div>
       </div>
     </>

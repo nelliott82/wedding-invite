@@ -538,6 +538,10 @@ video {
   inset: 0px;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
 .block {
   display: block;
 }
@@ -576,6 +580,10 @@ video {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 .content-center {
@@ -669,7 +677,7 @@ video {
   --smaller: .75;
 }
 
-.save-the-date {
+.themeFont {
   font-family: 'Libre Baskerville', serif;
   font-size: 3vw;
   @media (max-width: 768px) {
@@ -677,12 +685,17 @@ video {
   }
 }
 
-.header {
+.names {
   font-family: 'Parisienne', cursive;
-  font-size: 13vw;
+  font-size: 12vw;
   @media (max-width: 768px) {
     font-size: 20vw;
   }
+}
+
+#map {
+  width: 35vw;
+  height: auto;
 }
 
 li {
@@ -708,8 +721,8 @@ li span {
   }
 }
 
-.hover\:bg-opacity-100:hover {
-  --tw-bg-opacity: 1;
+.hover\:bg-opacity-75:hover {
+  --tw-bg-opacity: 0.75;
 }
 
 @media not all and (min-width: 768px) {
