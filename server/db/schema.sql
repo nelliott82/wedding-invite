@@ -14,7 +14,8 @@ CREATE TABLE `admin`(
 CREATE TABLE `invitees`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uuid` TEXT NOT NULL,
-  `email` TEXT NOT NULL,
+  `name` TEXT NOT NULL,
+  `contact` TEXT NOT NULL,
   `guests` INT NOT NULL,
   `attending` BOOLEAN,
   `songs` TEXT

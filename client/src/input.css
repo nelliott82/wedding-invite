@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --smaller: .75;
+}
+
+.save-the-date {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3vw;
+  @media (max-width: 500px) {
+    font-size: 5vw;
+  }
+}
+
+.header {
+  font-family: 'Sacramento', cursive;
+  font-size: 14vw;
+  @media (max-width: 500px) {
+    font-size: 20vw;
+  }
+}
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 0.5em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+
+  li span {
+    font-size: calc(2.375rem * var(--smaller));
+  }
+}
