@@ -1,45 +1,40 @@
 import React from 'react';
 
 const Countdown = () => {
-  (function () {
-    const second = 1000,
-          minute = second * 60,
-          hour = minute * 60,
-          day = hour * 24;
+    (function() {
+      const endTime = new Date("8/26/2023 19:30:00 GMT-0400").getTime();
 
-    let today = new Date(),
-        dd = String(today.getDate()).padStart(2, "0"),
-        mm = String(today.getMonth() + 1).padStart(2, "0"),
-        yyyy = today.getFullYear(),
-        dayMonth = "08/26/",
-        birthday = dayMonth + yyyy + " 19:30:00 GMT-0400";
+      function getRemainingTime(deadline) {
+        const currentTime = new Date().getTime();
+        return deadline - currentTime;
+      }
 
-    today = mm + "/" + dd + "/" + yyyy;
-    if (today > birthday) {
-      birthday = dayMonth;
-    }
+      function pad(value) {
+        return ('0' + Math.floor(value)).slice(-2);
+      }
 
-    const countDown = new Date(birthday).getTime(),
-        x = setInterval(function() {
+      function showTime() {
+        const remainingTime = getRemainingTime(endTime);
+        const seconds = pad((remainingTime / 1000) % 60);
+        const minutes = pad((remainingTime / (60 * 1000)) % 60);
+        const hours = pad((remainingTime / (60 * 60 * 1000)) % 24);
+        const days = pad(remainingTime / (24 * 60 * 60 * 1000));
 
-          const now = new Date().getTime(),
-                distance = countDown - now;
+        document.getElementById('days').innerText = days,
+        document.getElementById('hours').innerText = hours,
+        document.getElementById('minutes').innerText = minutes,
+        document.getElementById('seconds').innerText = seconds;
 
-          document.getElementById("days").innerText = Math.floor(distance / (day)),
-          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+        if (remainingTime >= 1000) {
+          requestAnimationFrame(showTime);
+        } else {
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("done").style.display = "block";
+        }
+      }
 
-          if (distance < 0) {
-            document.getElementById("countdown").style.display = "none";
-            document.getElementById("done").style.display = "block";
-            clearInterval(x);
-          } else {
-            document.getElementById("countdown").style.display = "block";
-            document.getElementById("done").style.display = "none";
-          }
-        }, 0)
-    }());
+      requestAnimationFrame(showTime);
+    })();
 
   return (
     <>
@@ -51,7 +46,9 @@ const Countdown = () => {
           <li><span id="seconds"></span>Seconds</li>
         </ul>
       </div>
-      <div id="done" className="text-5xl flex flex-row flex-wrap justify-evenly content-evenly">
+      <div id="done"
+           className="text-5xl flex flex-row flex-wrap justify-evenly content-evenly"
+           style={{"display": "none", "margin": "1rem"}}>
         <span>💒</span>
         <span>👰🏻‍♀️🤵🏻</span>
         <span>🎉</span>
