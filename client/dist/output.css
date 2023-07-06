@@ -538,6 +538,11 @@ video {
   inset: 0px;
 }
 
+.mx-\[15vw\] {
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -574,6 +579,14 @@ video {
   width: 100%;
 }
 
+.w-\[90vw\] {
+  width: 90vw;
+}
+
+.w-\[60vw\] {
+  width: 60vw;
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -608,6 +621,10 @@ video {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.self-center {
+  align-self: center;
 }
 
 .overflow-y-scroll {
@@ -761,5 +778,9 @@ li span {
 
   .max-md\:flex-wrap {
     flex-wrap: wrap;
+  }
+
+  .max-md\:self-center {
+    align-self: center;
   }
 }

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Ceremony = () => {
-  const mainDiv = "relative bg-green-200 bg-opacity-50 hover:bg-opacity-75 w-10/12 inline-block text-center p-5 mb-12";
+const Ceremony = ({ cardDiv }) => {
   const buttons = "rounded-full bg-green-400 inline-block text-base px-2.5 py-1";
   const locationURL = "https://www.google.com/maps?ll=-25.279004,-57.58289&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=17998339525865837309"
 
@@ -42,7 +41,7 @@ const Ceremony = () => {
   }, [])
 
   return (
-    <div className={`themeFont ${mainDiv}`}>
+    <div className={`themeFont ${cardDiv}`}>
       <h1>Ceremony</h1>
       <div>
         <div className="h-full w-full flex flex-row max-md:flex-col flex-nowrap max-md:flex-wrap justify-evenly content-evenly">
