@@ -9,6 +9,7 @@
 .themeFont {
   font-family: 'Libre Baskerville', serif;
   font-size: 3vw;
+  color: #777b6a;
   @media (max-width: 768px) {
     font-size: 5vw;
   }
@@ -17,14 +18,19 @@
 .names {
   font-family: 'Parisienne', cursive;
   font-size: 12vw;
+  color: #777b6a;
   @media (max-width: 768px) {
     font-size: 20vw;
   }
 }
 
-#map {
+#map, #map2 {
   width: 35vw;
   height: auto;
+  @media (max-width: 768px) {
+    width: auto;
+    height: 17vh;
+  }
 }
 
 li {
@@ -33,6 +39,7 @@ li {
   list-style-type: none;
   padding: 0.5em;
   text-transform: uppercase;
+  color: #777b6a;
 }
 
 li span {
@@ -43,6 +50,7 @@ li span {
 @media (max-width: 768px) {
   li {
     font-size: calc(1.125rem * var(--smaller));
+    width: 50px;
   }
 
   li span {

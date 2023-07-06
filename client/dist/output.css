@@ -558,8 +558,16 @@ video {
   height: 193%;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-10\/12 {
   width: 83.333333%;
+}
+
+.w-\[35vw\] {
+  width: 35vw;
 }
 
 .w-full {
@@ -680,6 +688,7 @@ video {
 .themeFont {
   font-family: 'Libre Baskerville', serif;
   font-size: 3vw;
+  color: #777b6a;
   @media (max-width: 768px) {
     font-size: 5vw;
   }
@@ -688,14 +697,20 @@ video {
 .names {
   font-family: 'Parisienne', cursive;
   font-size: 12vw;
+  color: #777b6a;
   @media (max-width: 768px) {
     font-size: 20vw;
   }
 }
 
-#map {
+#map, #map2 {
   width: 35vw;
   height: auto;
+  @media (max-width: 768px) {
+    width: auto;
+
+    height: 17vh;
+  }
 }
 
 li {
@@ -704,6 +719,7 @@ li {
   list-style-type: none;
   padding: 0.5em;
   text-transform: uppercase;
+  color: #777b6a;
 }
 
 li span {
@@ -714,6 +730,7 @@ li span {
 @media (max-width: 768px) {
   li {
     font-size: calc(1.125rem * var(--smaller));
+    width: 50px;
   }
 
   li span {
@@ -728,5 +745,21 @@ li span {
 @media not all and (min-width: 768px) {
   .max-md\:h-full {
     height: 100%;
+  }
+
+  .max-md\:w-\[33vw\] {
+    width: 33vw;
+  }
+
+  .max-md\:w-\[60vw\] {
+    width: 60vw;
+  }
+
+  .max-md\:flex-col {
+    flex-direction: column;
+  }
+
+  .max-md\:flex-wrap {
+    flex-wrap: wrap;
   }
 }

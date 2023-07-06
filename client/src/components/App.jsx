@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SaveTheDate from './cards/SaveTheDate.jsx';
 import Ceremony from './cards/Ceremony.jsx';
+import Reception from './cards/Reception.jsx';
 
 const App = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -34,8 +35,10 @@ const App = () => {
         <div id="content" className="flex flex-wrap flex-col pt-16 relative overflow-y justify-center content-center overflow-y-scroll">
           <SaveTheDate/>
           <Ceremony/>
+          <Reception/>
         </div>
       </div>
+      <a href='https://dryicons.com/free-icons/church'> Icon by Dryicons </a>
     </>
   )
 }

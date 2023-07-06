@@ -2,7 +2,7 @@ import React from 'react';
 
 const Countdown = () => {
     (function() {
-      const endTime = new Date("8/26/2023 19:30:00 GMT-0400").getTime();
+      const endTime = new Date("8/26/2023 00:00:00 GMT-0400").getTime();
 
       function getRemainingTime(deadline) {
         const currentTime = new Date().getTime();
@@ -41,9 +41,9 @@ const Countdown = () => {
       <div id="countdown">
         <ul className="flex flex-row flex-wrap justify-evenly content-evenly">
           <li><span id="days"></span>Days</li>
-          <li><span id="hours"></span>Hours</li>
-          <li><span id="minutes"></span>Minutes</li>
-          <li><span id="seconds"></span>Seconds</li>
+          <li><span id="hours"></span>Hrs</li>
+          <li><span id="minutes"></span>Mins</li>
+          <li><span id="seconds"></span>Secs</li>
         </ul>
       </div>
       <div id="done"

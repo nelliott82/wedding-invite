@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 const Ceremony = () => {
   const mainDiv = "relative bg-green-200 bg-opacity-50 hover:bg-opacity-75 w-10/12 inline-block text-center p-5 mb-12";
-  const calendarButton = "rounded-full bg-green-400 inline-block text-base px-2.5 py-1";
+  const buttons = "rounded-full bg-green-400 inline-block text-base px-2.5 py-1";
+  const locationURL = "https://www.google.com/maps?ll=-25.279004,-57.58289&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=17998339525865837309"
 
-  // Initialize and add the map
   let map;
 
   async function initMap() {
@@ -45,16 +45,21 @@ const Ceremony = () => {
     <div className={`themeFont ${mainDiv}`}>
       <h1>Ceremony</h1>
       <div>
-        <div className="flex flex-row flex-nowrap justify-evenly content-evenly">
-          <img src="./assets/church.png" style={{'width': '35vw'}}/>
+        <div className="h-full w-full flex flex-row max-md:flex-col flex-nowrap max-md:flex-wrap justify-evenly content-evenly">
+          <div><img src="./assets/churchicon.svg" className="w-[35vw] max-md:w-[33vw]"/></div>
+          <br/>
           <div id="map"></div>
         </div>
+        <br/>
         <p>Where: Vicaría Castrense de Asunción</p>
+        <a href={locationURL} target="_blank">
+          <button className={buttons}>Location</button>
+        </a>
+        <br/>
         <br/>
         <p>When: 7:30 PM</p>
-        <br/>
         <a href="https://calndr.link/e/mbcGiCD8mz?s=google" target="_blank">
-          <button className={calendarButton}>Add to Calendar</button>
+          <button className={buttons}>Add to Calendar</button>
         </a>
       </div>
     </div>
