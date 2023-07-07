@@ -18,6 +18,10 @@ module.exports = {
             plugins: ['@babel/plugin-transform-runtime']
           }
         }
+      },
+      {
+        test: /\.(sass|less|css)$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
       }
     ]
   }

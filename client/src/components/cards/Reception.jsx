@@ -55,7 +55,7 @@ const Reception = ({ cardDiv }) => {
         </a>
         <br/>
         <br/>
-        <p>When: 8:30 PM</p>
+        <p>When: 8:30 PM to 12:00 AM</p>
         <a href="https://calndr.link/e/mbcGiCD8mz?s=google" target="_blank">
           <button className={buttons}>Add to Calendar</button>
         </a>

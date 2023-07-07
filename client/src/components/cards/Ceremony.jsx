@@ -56,7 +56,7 @@ const Ceremony = ({ cardDiv }) => {
         </a>
         <br/>
         <br/>
-        <p>When: 7:30 PM</p>
+        <p>When: 7:30 PM to 8:00 PM</p>
         <a href="https://calndr.link/e/mbcGiCD8mz?s=google" target="_blank">
           <button className={buttons}>Add to Calendar</button>
         </a>
