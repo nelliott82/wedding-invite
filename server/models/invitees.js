@@ -2,9 +2,9 @@ const db = require('../db');
 const sqlstring = require('sqlstring');
 
 module.exports = {
-  getOne: function (data, callback) {
+  getOne: function (uuid, callback) {
     db.connection.connect();
-    db.connection.query(`SELECT * FROM invitees WHERE uuid = '${data.uuid}'`, null, (err, results) => {
+    db.connection.query(`SELECT name, guests FROM invitees WHERE uuid = '${uuid}'`, null, (err, results) => {
       if (err) {
         callback(err);
       } else {

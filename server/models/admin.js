@@ -40,9 +40,10 @@ module.exports = {
       if (err || !results.length) {
         callback(err);
       } else {
-        const email = sqlstring.escape(data.email);
+        const name = sqlstring.escape(data.name);
+        const contact = sqlstring.escape(data.contact);
         const insert_uuid = uuidv4();
-        const insert = `INSERT INTO invitees (uuid, email, guests) VALUES ('${insert_uuid}', ${email}, ${data.guests})`;
+        const insert = `INSERT INTO invitees (uuid, name, contact, guests) VALUES ('${insert_uuid}', ${name}, ${contact}, ${data.guests})`;
         db.connection.query(insert, null, (err, results) => {
           if (err) {
             callback(err);

@@ -5,6 +5,7 @@ import PhotoReel from './cards/PhotoReel.jsx';
 import Ceremony from './cards/Ceremony.jsx';
 import Reception from './cards/Reception.jsx';
 import GeneralInfo from './cards/GeneralInfo.jsx';
+import ResponseForm from './cards/ResponseForm.jsx';
 
 const App = () => {
   const cardDiv = "relative bg-green-200 bg-opacity-50 hover:bg-opacity-75 w-10/12 inline-block text-center p-5 mb-12";
@@ -19,6 +20,7 @@ const App = () => {
           <Ceremony cardDiv={cardDiv} />
           <Reception cardDiv={cardDiv} />
           <GeneralInfo cardDiv={cardDiv} />
+          <ResponseForm cardDiv={cardDiv} />
         </div>
       </div>
       <a href='https://dryicons.com/free-icons/church'> Icon by Dryicons </a>
