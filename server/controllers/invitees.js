@@ -4,7 +4,6 @@ const url = require('url');
 module.exports = {
   get: function (req, res) {
     const uuid = req.params.uuid || req.cookies.uuid;
-    console.log(req.cookies)
     models.invitees.getOne(uuid, function(err, results) {
       if (err) {
         res.statusCode = 400;
@@ -28,7 +27,10 @@ module.exports = {
     });
   },
   put: function (req, res) {
-    models.invitees.update(req.body, function(err, results) {
+    const data = req.body;
+    data.uuid = req.cookies.uuid;
+
+    models.invitees.update(data, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));

@@ -17,6 +17,8 @@ CREATE TABLE `invitees`(
   `name` TEXT NOT NULL,
   `contact` TEXT NOT NULL,
   `guests` INT NOT NULL,
+  `guestsResponse` INT,
+  CHECK (`guestsResponse` <= `guests`),
   `attending` BOOLEAN,
   `songs` TEXT
 );

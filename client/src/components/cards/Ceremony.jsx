@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Ceremony = ({ cardDiv }) => {
-  const buttons = "rounded-full bg-green-400 inline-block text-base px-2.5 py-1";
+const Ceremony = ({ cardDiv, buttons }) => {
   const locationURL = "https://www.google.com/maps?ll=-25.279004,-57.58289&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=17998339525865837309"
 
   let map;
