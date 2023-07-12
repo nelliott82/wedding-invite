@@ -542,10 +542,6 @@ video {
   margin-bottom: 3rem;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
 .block {
   display: block;
 }
@@ -578,6 +574,10 @@ video {
   width: 83.333333%;
 }
 
+.w-\[28rem\] {
+  width: 28rem;
+}
+
 .w-\[35vw\] {
   width: 35vw;
 }
@@ -588,30 +588,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-2 {
-  width: 0.5rem;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-44 {
-  width: 11rem;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
-.w-\[28rem\] {
-  width: 28rem;
-}
-
-.table-fixed {
-  table-layout: fixed;
 }
 
 .transform {
@@ -662,10 +638,6 @@ video {
   border-radius: 9999px;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .border-4 {
   border-width: 4px;
 }
@@ -679,29 +651,14 @@ video {
   border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
-.bg-green-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
-}
-
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
-}
-
-.bg-emerald-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(52 211 153 / var(--tw-bg-opacity));
-}
-
-.bg-emerald-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(167 243 208 / var(--tw-bg-opacity));
-}
-
 .bg-emerald-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(236 253 245 / var(--tw-bg-opacity));
+}
+
+.bg-green-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -749,10 +706,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .text-5xl {
@@ -858,11 +811,6 @@ li span {
   }
 }
 
-.hover\:bg-emerald-400:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(52 211 153 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-emerald-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(167 243 208 / var(--tw-bg-opacity));
@@ -877,12 +825,12 @@ li span {
     height: 100%;
   }
 
-  .max-md\:w-\[33vw\] {
-    width: 33vw;
-  }
-
   .max-md\:w-44 {
     width: 11rem;
+  }
+
+  .max-md\:w-\[33vw\] {
+    width: 33vw;
   }
 
   .max-md\:flex-col {

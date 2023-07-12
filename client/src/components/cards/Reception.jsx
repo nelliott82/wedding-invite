@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import loadJs from 'load-js';
 
 const Reception = ({ cardDiv, buttons }) => {
   const locationURL = "https://www.google.com/maps/place/La+Misi%C3%B3n+Hotel+Boutique/@-25.2953879,-57.5820629,15z/data=!4m20!1m10!3m9!1s0x945da89a2255a9b7:0x2f3b74e1bdf4e746!2sLa+Misi%C3%B3n+Hotel+Boutique!5m2!4m1!1i2!8m2!3d-25.2953879!4d-57.5820629!16s%2Fg%2F1tmkm1t1!3m8!1s0x945da89a2255a9b7:0x2f3b74e1bdf4e746!5m2!4m1!1i2!8m2!3d-25.2953879!4d-57.5820629!16s%2Fg%2F1tmkm1t1?entry=ttu"
@@ -36,8 +37,15 @@ const Reception = ({ cardDiv, buttons }) => {
   }
 
   useEffect(() => {
-    initMap();
-  }, [])
+    console.log(process.env.API_KEY);
+    loadJs(`https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&libraries=maps`)
+      .then(() => {
+        initMap();
+      })
+      .catch((error) => {
+        console.error('Failed to load Google Maps API:', error);
+      });
+  }, []);
 
   return (
     <div className={`themeFont ${cardDiv}`}>

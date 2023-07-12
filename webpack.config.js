@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.join(__dirname, 'client/src/index.jsx'),
@@ -24,5 +25,10 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'less-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+    }),
+  ],
 };
