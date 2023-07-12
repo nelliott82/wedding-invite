@@ -37,7 +37,6 @@ const Reception = ({ cardDiv, buttons }) => {
   }
 
   useEffect(() => {
-    console.log(process.env.API_KEY);
     loadJs(`https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&libraries=maps`)
       .then(() => {
         initMap();

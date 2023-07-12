@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import loadJs from 'load-js';
 
 const Ceremony = ({ cardDiv, buttons }) => {
   const locationURL = "https://www.google.com/maps?ll=-25.279004,-57.58289&z=16&t=m&hl=en-US&gl=US&mapclient=apiv3&cid=17998339525865837309"
@@ -36,8 +37,14 @@ const Ceremony = ({ cardDiv, buttons }) => {
   }
 
   useEffect(() => {
-    initMap();
-  }, [])
+    loadJs(`https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&libraries=maps`)
+      .then(() => {
+        initMap();
+      })
+      .catch((error) => {
+        console.error('Failed to load Google Maps API:', error);
+      });
+  }, []);
 
   return (
     <div className={`themeFont ${cardDiv}`}>

@@ -21,12 +21,6 @@ app.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/api/apiKey', (req, res) => {
-  console.log('apiKey')
-  const apiKey = 'AIzaSyBkGpz_EWR9bWbS5ZlbaXSP3ur2ZL76-Do'; // Replace with your actual API key retrieval logic
-  res.json({ apiKey });
-});
-
 app.use('/invitations', router);
 app.use('/invited', routerInvited);
 
