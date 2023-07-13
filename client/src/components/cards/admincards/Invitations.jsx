@@ -16,7 +16,7 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
         // Handle Error
       })
   }
-  console.log(invitations)
+
   return (
     <div className={cardDiv}>
       <h1>Invitations</h1>

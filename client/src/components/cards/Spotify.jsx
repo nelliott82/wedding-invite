@@ -12,7 +12,7 @@ const Spotify = ({ attending, songsRef, handleChange }) => {
       setSpotify(false);
     }
   }
-console.log(process.env.SPOTIFY)
+
   return (
     <>
       {attending === 'true' ?

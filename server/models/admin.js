@@ -7,7 +7,6 @@ module.exports = {
   verify: function (uuid, callback) {
     db.connection.connect();
     db.connection.query(`SELECT * FROM admin WHERE uuid = '${uuid}'`, null, (err, results) => {
-      console.log(results)
       if (err) {
         callback(err);
       } else if (!results.length) {
@@ -22,7 +21,6 @@ module.exports = {
     const email = sqlstring.escape(data.email);
 
     db.connection.query(`SELECT * FROM admin WHERE email = ${email} AND uuid = '${data.uuid}'`, null, (err, results) => {
-      console.log('login verify results: ', results)
       if (err) {
         callback(err);
       } else if (!results.length) {
@@ -43,12 +41,12 @@ module.exports = {
               let sessionEnds = new Date();
               sessionEnds.setMonth(sessionEnds.getMonth() + 2);
               sessionEnds = sessionEnds.toISOString().split('T')[0];
-              console.log('sessionEnds: ', sessionEnds);
+
               const update = `UPDATE admin
                               SET hashword = '${hash}', session_ends = '${sessionEnds}'
                               WHERE uuid = '${data.uuid}'`;
+
               db.connection.query(update, null, (err, results) => {
-                console.log('update login results: ', results)
                 if (err) {
                   callback(err);
                 } else {
@@ -58,6 +56,25 @@ module.exports = {
             });
           });
         }
+      }
+    });
+  },
+  logout: function (data, callback) {
+    db.connection.connect();
+    let sessionEnds = new Date();
+    sessionEnds.setDate(sessionEnds.getDate() - 1);
+    sessionEnds = sessionEnds.toISOString().split('T')[0];
+
+    const update = `UPDATE admin
+                    SET session_ends = '${sessionEnds}'
+                    WHERE uuid = '${data.uuid}'`;
+
+    db.connection.query(update, null, (err, results) => {
+      console.log()
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
       }
     });
   },
@@ -74,7 +91,6 @@ module.exports = {
   },
   insert: function (data, callback) {
     db.connection.connect();
-    console.log(data)
     const name = sqlstring.escape(data.name);
     const contact = sqlstring.escape(data.contact);
     const insert_uuid = uuidv4();

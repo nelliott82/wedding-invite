@@ -42,8 +42,19 @@ module.exports = {
       }
     });
   },
+  logout: function (req, res) {
+    console.log(req.body)
+    models.admin.logout(req.body, function(err, results) {
+      if (err) {
+        res.statusCode = 400;
+        res.end(JSON.stringify(err));
+      } else {
+        res.statusCode = 200;
+        res.end(JSON.stringify(results));
+      }
+    });
+  },
   get: function (req, res) {
-    console.log('admin get: ', req.params);
     models.admin.getAll(req.params, function(err, results) {
       if (err) {
         res.statusCode = err === 500 ? err : 400;

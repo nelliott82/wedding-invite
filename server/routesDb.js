@@ -5,6 +5,8 @@ router.get('/admin/verify/:uuid', controller.admin.verify);
 
 router.put('/admin/login', controller.admin.login);
 
+router.put('/admin/logout', controller.admin.logout);
+
 router.get('/admin/:uuid', controller.admin.get);
 
 router.post('/admin', controller.admin.post);

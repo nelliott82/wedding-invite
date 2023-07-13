@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoginForm from './adminCards/LoginForm.jsx';
+import Navbar from './adminCards/Navbar.jsx';
 import CreateInvite from './adminCards/CreateInvite.jsx';
 import Invitations from './adminCards/Invitations.jsx';
 import Responded from './adminCards/Responded.jsx';
@@ -22,20 +23,20 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
   }
 
   useEffect(() => {
-    console.log(login)
     if (!login) {
       getInvitations();
     }
   }, [display, login]);
 
   return (
-    <div className={`${display} flex flex-col flex-wrap justify-center content-center`}>
+    <div className={`${display} mt-8 flex flex-col flex-wrap justify-center content-center`}>
       {login ?
         <div className={cardDiv}>
           <LoginForm setLogin={setLogin} getInvitations={getInvitations} buttons={buttons} />
         </div>
         :
         <>
+          <Navbar/>
           <CreateInvite cardDiv={cardDiv} setInvitations={setInvitations} buttons={buttons} />
           <Invitations cardDiv={cardDiv} invitations={invitations} setInvitations={setInvitations} />
           <Responded cardDiv={cardDiv} invitations={invitations} />
