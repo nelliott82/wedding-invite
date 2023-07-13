@@ -8,6 +8,7 @@ CREATE TABLE `admin`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uuid` TEXT NOT NULL,
   `session_ends` DATE NOT NULL,
+  `session_id` TEXT,
   `email` TEXT NOT NULL,
   `hashword` TEXT
 );

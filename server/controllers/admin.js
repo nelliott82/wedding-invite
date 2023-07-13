@@ -1,20 +1,24 @@
 const models = require('../models');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
   verify: function (req, res) {
-    const uuid = req.params.uuid || req.cookies.uuid;
-    models.admin.verify(uuid, function(err, results) {
+    const uuid = req.params.uuid;
+    const sessionId = req.cookies.session_id;
+    const data = { uuid, sessionId };
+
+    models.admin.verify(data, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
         res.statusCode = 200;
-        res.cookie('uuid', uuid, { expires: new Date("8/28/2023"), httpOnly: true });
 
         if (results[0].hashword) {
           const sessionEnds = new Date(results[0].session_ends);
           const now = new Date();
-          if (now > sessionEnds) {
+
+          if (now > sessionEnds || results[0].session_id !== sessionId) {
             res.json({
               login: true
             });
@@ -32,23 +36,30 @@ module.exports = {
     });
   },
   login: function (req, res) {
-    models.admin.login(req.body, function(err, results) {
+    models.admin.login(req.body, function(err, results, sessionId) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
+        const sessionExpires = new Date();
+        sessionExpires.setMonth(sessionExpires.getMonth() + 2);
+        res.cookie('session_id', sessionId, { expires: sessionExpires, httpOnly: true });
+
         res.statusCode = 200;
         res.end(JSON.stringify(results));
       }
     });
   },
   logout: function (req, res) {
-    console.log(req.body)
     models.admin.logout(req.body, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
+        const sessionExpires = new Date();
+        sessionExpires.setMonth(sessionExpires.getMonth() - 1);
+        res.cookie('session_id', sessionId, { expires: sessionExpires, httpOnly: true });
+
         res.statusCode = 200;
         res.end(JSON.stringify(results));
       }

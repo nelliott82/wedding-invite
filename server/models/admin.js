@@ -4,9 +4,9 @@ const sqlstring = require('sqlstring');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-  verify: function (uuid, callback) {
+  verify: function (data, callback) {
     db.connection.connect();
-    db.connection.query(`SELECT * FROM admin WHERE uuid = '${uuid}'`, null, (err, results) => {
+    db.connection.query(`SELECT * FROM admin WHERE uuid = '${data.uuid}'`, null, (err, results) => {
       if (err) {
         callback(err);
       } else if (!results.length) {
@@ -41,16 +41,17 @@ module.exports = {
               let sessionEnds = new Date();
               sessionEnds.setMonth(sessionEnds.getMonth() + 2);
               sessionEnds = sessionEnds.toISOString().split('T')[0];
+              const sessionId = uuidv4();
 
               const update = `UPDATE admin
-                              SET hashword = '${hash}', session_ends = '${sessionEnds}'
+                              SET hashword = '${hash}', session_ends = '${sessionEnds}', session_id = '${sessionId}'
                               WHERE uuid = '${data.uuid}'`;
 
               db.connection.query(update, null, (err, results) => {
                 if (err) {
                   callback(err);
                 } else {
-                  callback(null, results);
+                  callback(null, results, sessionId);
                 }
               });
             });
@@ -66,11 +67,10 @@ module.exports = {
     sessionEnds = sessionEnds.toISOString().split('T')[0];
 
     const update = `UPDATE admin
-                    SET session_ends = '${sessionEnds}'
+                    SET session_ends = '${sessionEnds}', session_id = null
                     WHERE uuid = '${data.uuid}'`;
 
     db.connection.query(update, null, (err, results) => {
-      console.log()
       if (err) {
         callback(err);
       } else {
