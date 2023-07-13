@@ -56,10 +56,6 @@ module.exports = {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
-        const sessionExpires = new Date();
-        sessionExpires.setMonth(sessionExpires.getMonth() - 1);
-        res.cookie('session_id', sessionId, { expires: sessionExpires, httpOnly: true });
-
         res.statusCode = 200;
         res.end(JSON.stringify(results));
       }

@@ -67,7 +67,7 @@ module.exports = {
     sessionEnds = sessionEnds.toISOString().split('T')[0];
 
     const update = `UPDATE admin
-                    SET session_ends = '${sessionEnds}', session_id = null
+                    SET session_ends = '${sessionEnds}'
                     WHERE uuid = '${data.uuid}'`;
 
     db.connection.query(update, null, (err, results) => {
