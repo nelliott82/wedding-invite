@@ -35,6 +35,10 @@ export default function Photos() {
           </SwiperSlide>
         )}
       </Swiper>
+      <br/>
+      <a href='https://www.instagram.com/explore/tags/summer/' target='_blank'>
+        <p className='font-mono'><u>Follow and use our wedding hashtag on Instagram</u></p>
+      </a>
     </>
   );
 }

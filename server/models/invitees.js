@@ -4,7 +4,7 @@ const sqlstring = require('sqlstring');
 module.exports = {
   getOne: function (uuid, callback) {
     db.connection.connect();
-    db.connection.query(`SELECT name, guests FROM invitees WHERE uuid = '${uuid}' AND attending IS NULL`, null, (err, results) => {
+    db.connection.query(`SELECT name, guests, language FROM invitees WHERE uuid = '${uuid}' AND attending IS NULL`, null, (err, results) => {
       if (err) {
         callback(err);
       } else {
@@ -16,7 +16,7 @@ module.exports = {
     db.connection.connect();
 
     const songs = sqlstring.escape(data.songs);
-    console.log(data);
+
     const update = `UPDATE invitees
                     SET guestsResponse = ${data.guests}, attending = ${data.attending}, songs = ${songs}
                     WHERE uuid = '${data.uuid}'`;

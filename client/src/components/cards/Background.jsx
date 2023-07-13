@@ -20,7 +20,7 @@ const Background = ({ cardDiv }) => {
   const elementStyle = {
     position: 'fixed',
     top: 0,
-    transform: isMobile ? 'translateY(0)' : `translateY(${(-scrollY * 0.2)}px)`,
+    transform: isMobile ? 'translateY(0)' : `translateY(${(-scrollY * 0.1)}px)`,
   };
 
   return (

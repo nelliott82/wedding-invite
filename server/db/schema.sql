@@ -7,6 +7,7 @@ USE invites;
 CREATE TABLE `admin`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uuid` TEXT NOT NULL,
+  `session_ends` DATE NOT NULL,
   `email` TEXT NOT NULL,
   `hashword` TEXT
 );
@@ -20,5 +21,6 @@ CREATE TABLE `invitees`(
   `guestsResponse` INT,
   CHECK (`guestsResponse` <= `guests`),
   `attending` BOOLEAN,
+  `language` BOOLEAN NOT NULL,
   `songs` TEXT
 );

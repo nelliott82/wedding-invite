@@ -1,28 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Spotify from './Spotify.jsx';
 import axios from 'axios';
 
-const formatQuery = (query) => {
-  const result = {};
-
-  query.split('&').forEach((value) => {
-    let params = value.split('=');
-
-    result[params[0]] = decodeURI(params[1]);
-  });
-
-  return query.length ? result : false;
-}
-
-const ResponseForm = ({ cardDiv, buttons }) => {
+const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
   const [display, setDisplay] = useState('hidden');
+  const [error, setError] = useState(false);
   const [guestsArr, setGuestsArr] = useState([]);
   const [guests, setGuests] = useState(0);
   const [guestsError, setGuestsError] = useState('');
   const [attending, setAttending] = useState('-');
   const [attendingError, setAttendingError] = useState('');
+  const [spotify, setSpotify] = useState('-');
   const [received, setReceived] = useState(false);
   const nameRef = useRef();
   const songsRef = useRef();
+
+  const errorStyling = 'font-mono text-base max-md:text-sm text-red-600 h-[2rem] max-md:h-[3rem] w-full'
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -40,9 +33,12 @@ const ResponseForm = ({ cardDiv, buttons }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(false);
+    const pathname = window.location.pathname.split('/').filter(x => x);
 
     if (attending !== '-') {
       axios.put('/invitations/invitees', {
+        uuid: pathname[1],
         guests,
         attending: attending === 'true' ? true : false,
         songs: songsRef.current.value,
@@ -54,7 +50,7 @@ const ResponseForm = ({ cardDiv, buttons }) => {
           if (err.response.data.errno === 3819) {
             setGuestsError('border-4 border-red-700 border-solid');
           } else {
-            // Handle error
+            setError(true);
           }
         });
     } else {
@@ -63,30 +59,29 @@ const ResponseForm = ({ cardDiv, buttons }) => {
   }
 
   useEffect(() => {
-    let inviteeObject = formatQuery(window.location.search.slice(1));
-
-    if (inviteeObject) {
+    if (invited) {
       setDisplay('');
 
-      nameRef.current.value = inviteeObject.name;
-      setGuests(parseInt(inviteeObject.guests));
-      setGuestsArr(new Array(parseInt(inviteeObject.guests) + 1).fill(0));
+      nameRef.current.value = invitation.name;
+      setGuests(parseInt(invitation.guests));
+      setGuestsArr(new Array(parseInt(invitation.guests) + 1).fill(0));
     }
 
-  }, []);
+  }, [invited]);
 
   return (
     <div className={`themeFont ${cardDiv} ${display}`}>
       {!received ?
         <>
           <h1>Response</h1>
-          <br/>
+          {/* <br/> */}
+          <p className={errorStyling}>{error ? 'Oops! Something went wrong. Please try again.' : ''}</p>
           <form>
             <table>
               <tbody>
                 <tr>
                   <td className='text-left'><label htmlFor='name'>Name:</label></td>
-                  <td className='text-left w-[28rem] max-md:w-44'>
+                  <td className='text-left w-full max-md:w-44'>
                     <input name='name'
                            ref={nameRef}
                            readOnly
@@ -95,7 +90,7 @@ const ResponseForm = ({ cardDiv, buttons }) => {
                 </tr>
                 <tr>
                   <td className='text-left'><label htmlFor='guests'>Guests:</label></td>
-                  <td className='text-left w-[28rem] max-md:w-44'>
+                  <td className='text-left w-full max-md:w-44'>
                     <select name='guests'
                             value={guests}
                             className={guestsError}
@@ -106,30 +101,19 @@ const ResponseForm = ({ cardDiv, buttons }) => {
                 </tr>
                 <tr>
                   <td className='text-left'><label htmlFor='attending'>Attending:</label></td>
-                  <td className='text-left w-[28rem] max-md:w-44'>
+                  <td className='text-left w-full max-md:w-44'>
                     <select name='attending'
                             value={attending}
                             onChange={handleChange}
                             className={attendingError}
                             required>
-                      <option value='' >-</option>
+                      <option value='-' >-</option>
                       <option value='true' >Yes</option>
                       <option value='false' >No</option>
                     </select>
                   </td>
                 </tr>
-                {attending === 'false' ?
-                  null
-                  :
-                  <tr>
-                    <td className='text-left'><label htmlFor='songs'>Songs that make me dance:</label></td>
-                    <td className='text-left w-[28rem] max-md:w-44'>
-                      <input name='songs'
-                             ref={songsRef}
-                             onChange={handleChange}
-                             className='w-full'/>
-                    </td>
-                  </tr>}
+                <Spotify attending={attending} songsRef={songsRef} handleChange={handleChange} buttons={buttons} />
               </tbody>
             </table>
             <br/>
