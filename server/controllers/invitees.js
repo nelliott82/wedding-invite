@@ -10,12 +10,12 @@ module.exports = {
         res.end(JSON.stringify(err));
       } else {
         if (results.length) {
-          res.cookie('uuid', uuid, { expires: new Date("8/28/2023"), httpOnly: true });
           res.status(200);
           res.json({
             valid: true,
             name: results[0].name,
-            guests: results[0].guests
+            guests: results[0].guests,
+            language: results[0].language
           });
         } else {
           res.status(200);

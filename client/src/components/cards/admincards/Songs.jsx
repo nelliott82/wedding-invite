@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
 const Songs = ({ cardDiv, invitations }) => {
-  const columnClass = 'text-left w-[28rem] max-md:w-44';
+  const columnLeftClass = 'text-left w-[15rem] max-md:w-44';
+  const columnRightClass = 'text-left w-[65rem] max-md:w-44';
 
   useEffect(() => {
   }, [invitations]);
@@ -12,8 +13,8 @@ const Songs = ({ cardDiv, invitations }) => {
       <table>
        <thead>
         <tr>
-          <td className={columnClass}>Name</td>
-          <td className={columnClass}>Songs</td>
+          <td className={columnLeftClass}>Name</td>
+          <td className={columnRightClass}>Songs</td>
         </tr>
        </thead>
        <tbody>
@@ -21,8 +22,8 @@ const Songs = ({ cardDiv, invitations }) => {
           if (x.attending === 1 && x.songs) {
             return (
               <tr key={x.uuid}>
-                <td className={columnClass}>{x.name}</td>
-                <td className={columnClass}>{x.songs}</td>
+                <td className={columnLeftClass}>{x.name}</td>
+                <td className={columnRightClass}>{x.songs}</td>
               </tr>
             )
           }

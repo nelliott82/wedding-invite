@@ -1,13 +1,13 @@
 import React from 'react';
 import Photos from './Photos.jsx';
 
-const PhotoReel = ({ cardDiv }) => {
+const PhotoReel = ({ cardDiv, text }) => {
 
   return (
     <div className={`themeFont ${cardDiv}`}>
-      <h1>Photos</h1>
+      <h1 className='text-2xl'>{text.heading}</h1>
       <br/>
-      <Photos/>
+      <Photos text={text}/>
     </div>
   )
 }

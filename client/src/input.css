@@ -49,6 +49,15 @@ td {
   }
 }
 
+.loadingFont {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3vw;
+  color: #ffffff;
+  @media (max-width: 768px) {
+    font-size: 5vw;
+  }
+}
+
 .names {
   font-family: 'Parisienne', cursive;
   font-size: 12vw;
@@ -59,8 +68,8 @@ td {
 }
 
 #map, #map2 {
-  width: 35vw;
-  height: auto;
+  width: 100%;
+  height: 35vw;
   @media (max-width: 768px) {
     width: auto;
     height: 17vh;

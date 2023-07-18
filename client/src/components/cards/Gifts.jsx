@@ -1,33 +1,31 @@
 import React from 'react';
 
-const Gifts = ({ cardDiv }) => {
+const Gifts = ({ cardDiv, text }) => {
 
   return (
     <div>
-      <p>Gifts</p>
+      <p>{text.heading}</p>
       <div className="flex flex-row max-md:flex-col flex-nowrap max-md:flex-wrap justify-evenly content-evenly">
         <img src="./assets/gifts.png" className="w-[35vw] max-md:w-[33vw] self-center"/>
-        <div style={{'fontSize': '1.25rem', 'alignSelf': 'center'}}>
+        <div className='text-[1.25rem] self-center'>
           <p>
-            Your presence is all the present we ask. Should you feel compelled to go beyond that,
-            we kindly request transfers over physical gifts.
+            {text.message}
           </p>
           <br/>
-          <p>
-            Transfers can be made here:
-          </p>
-          <p>
-            Caja de Ahorro # 4445334
-          </p>
-          <p>
-            Sudameris Bank SAECA
-          </p>
-          <p>
-            C.I. 3.999.746
-          </p>
-          <p>
-            Perla Aurora Britez Larrosa
-          </p>
+          <div className='max-md:text-base font-["Arial"]'>
+            <p>
+              {text.TransferInfo.line1}
+            </p>
+            <p>
+              {text.TransferInfo.line2}
+            </p>
+            <p>
+              {text.TransferInfo.line3}
+            </p>
+            <p>
+              {text.TransferInfo.line4}
+            </p>
+          </div>
         </div>
       </div>
     </div>

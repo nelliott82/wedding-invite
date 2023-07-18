@@ -3,12 +3,11 @@ const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
   verify: function (req, res) {
-    const uuid = req.params.uuid;
     const sessionId = req.cookies.session_id;
-    const data = { uuid, sessionId };
+    const data = { ...req.params, ...req.cookies };
 
     models.admin.verify(data, function(err, results) {
-      if (err) {
+      if (err || (req.params.uuid !== '123' && results[0].hashword)) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
       } else {
@@ -51,7 +50,7 @@ module.exports = {
     });
   },
   logout: function (req, res) {
-    models.admin.logout(req.body, function(err, results) {
+    models.admin.logout(req.cookies, function(err, results) {
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
@@ -62,7 +61,9 @@ module.exports = {
     });
   },
   get: function (req, res) {
-    models.admin.getAll(req.params, function(err, results) {
+    const data = { ...req.params, ...req.cookies };
+
+    models.admin.getAll(data, function(err, results) {
       if (err) {
         res.statusCode = err === 500 ? err : 400;
         res.end(JSON.stringify(err));
@@ -76,6 +77,8 @@ module.exports = {
     const data = { ...req.body, ...req.cookies };
 
     models.admin.insert(data, function(err, results) {
+      // console.log(err)
+      // console.log(results)
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));

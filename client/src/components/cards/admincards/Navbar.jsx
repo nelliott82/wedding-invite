@@ -7,7 +7,7 @@ const Navbar = ({ cardDiv }) => {
     e.preventDefault();
     const pathname = window.location.pathname.split('/').filter(x => x);
 
-    axios.put(`/invitations/admin/logout`, { uuid: pathname[1] })
+    axios.put(`/invitations/admin/logout`)
       .then((response) => {
         window.location.assign(`http://${window.location.host}`);
       })

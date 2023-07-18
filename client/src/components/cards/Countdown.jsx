@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Countdown = () => {
+const Countdown = ({ text }) => {
     (function() {
       const endTime = new Date("8/26/2023 00:00:00 GMT-0400").getTime();
 
@@ -40,10 +40,10 @@ const Countdown = () => {
     <>
       <div id="countdown">
         <ul className="flex flex-row flex-wrap justify-evenly content-evenly">
-          <li><span id="days"></span>Days</li>
-          <li><span id="hours"></span>Hrs</li>
-          <li><span id="minutes"></span>Mins</li>
-          <li><span id="seconds"></span>Secs</li>
+          <li><span id="days"></span>{text.days}</li>
+          <li><span id="hours"></span>{text.hours}</li>
+          <li><span id="minutes"></span>{text.mins}</li>
+          <li><span id="seconds"></span>{text.secs}</li>
         </ul>
       </div>
       <div id="done"

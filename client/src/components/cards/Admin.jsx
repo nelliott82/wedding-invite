@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading.jsx';
 import LoginForm from './adminCards/LoginForm.jsx';
 import Navbar from './adminCards/Navbar.jsx';
 import CreateInvite from './adminCards/CreateInvite.jsx';
@@ -9,6 +10,7 @@ import axios from 'axios';
 
 const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
   const [invitations, setInvitations] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getInvitations = () => {
     const pathname = window.location.pathname.split('/').filter(x => x);
@@ -16,6 +18,7 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
     axios.get(`/invitations/admin/${pathname[1]}`)
       .then((response) => {
         setInvitations(response.data);
+        setLoading(false);
       })
       .catch((err) => {
         // Handle Error
@@ -29,21 +32,27 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
   }, [display, login]);
 
   return (
-    <div className={`${display} mt-8 flex flex-col flex-wrap justify-center content-center`}>
-      {login ?
-        <div className={cardDiv}>
-          <LoginForm setLogin={setLogin} getInvitations={getInvitations} buttons={buttons} />
-        </div>
+    <>
+      {loading ?
+        <Loading/>
         :
-        <>
-          <Navbar/>
-          <CreateInvite cardDiv={cardDiv} setInvitations={setInvitations} buttons={buttons} />
-          <Invitations cardDiv={cardDiv} invitations={invitations} setInvitations={setInvitations} />
-          <Responded cardDiv={cardDiv} invitations={invitations} />
-          <Songs cardDiv={cardDiv} invitations={invitations} />
-        </>
+        <div className={`${display} mt-8 flex flex-col flex-wrap justify-center content-center`}>
+          {login ?
+            <div className={cardDiv}>
+              <LoginForm setLogin={setLogin} getInvitations={getInvitations} buttons={buttons} />
+            </div>
+            :
+            <>
+              <Navbar/>
+              <CreateInvite cardDiv={cardDiv} setInvitations={setInvitations} buttons={buttons} />
+              <Invitations cardDiv={cardDiv} invitations={invitations} setInvitations={setInvitations} />
+              <Responded cardDiv={cardDiv} invitations={invitations} />
+              <Songs cardDiv={cardDiv} invitations={invitations} />
+            </>
+          }
+        </div>
       }
-    </div>
+    </>
   )
 }
 

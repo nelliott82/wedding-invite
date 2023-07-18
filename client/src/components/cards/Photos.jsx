@@ -10,7 +10,7 @@ import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 const photos = new Array(20).fill(0);
 
-export default function Photos() {
+export default function Photos({ text }) {
 
   return (
     <>
@@ -36,9 +36,13 @@ export default function Photos() {
         )}
       </Swiper>
       <br/>
-      <a href='https://www.instagram.com/explore/tags/summer/' target='_blank'>
-        <p className='font-mono'><u>Follow and use our wedding hashtag on Instagram</u></p>
-      </a>
+      <p className='font-["Arial"] max-md:text-[1.1rem]'>{text.linkText}
+      </p>
+      <div className='flex flex-wrap justify-evenly content-evenly pt-[1rem] font-["Arial"] max-md:text-[1.1rem]'>
+        <img className='h-[3rem] w-[3rem]' src='./assets/insta.png'></img>
+        <a className='self-center' href='https://www.instagram.com/explore/tags/summer/' target='_blank'> <u>#PerlaNikko</u>
+        </a>
+      </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Spotify from './Spotify.jsx';
 import axios from 'axios';
 
-const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
+const ResponseForm = ({ cardDiv, buttons, invited, invitation, text }) => {
   const [display, setDisplay] = useState('hidden');
   const [error, setError] = useState(false);
   const [guestsArr, setGuestsArr] = useState([]);
@@ -12,6 +12,7 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
   const [attendingError, setAttendingError] = useState('');
   const [spotify, setSpotify] = useState('-');
   const [received, setReceived] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const nameRef = useRef();
   const songsRef = useRef();
 
@@ -34,6 +35,7 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(false);
+    setDisabled(true);
     const pathname = window.location.pathname.split('/').filter(x => x);
 
     if (attending !== '-') {
@@ -41,7 +43,7 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
         uuid: pathname[1],
         guests,
         attending: attending === 'true' ? true : false,
-        songs: songsRef.current.value,
+        songs: songsRef.current ? songsRef.current.value : '',
       })
         .then((response) => {
           setReceived(true);
@@ -52,9 +54,11 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
           } else {
             setError(true);
           }
+          setDisabled(false);
         });
     } else {
       setAttendingError('border-4 border-red-700 border-solid');
+      setDisabled(false);
     }
   }
 
@@ -73,15 +77,14 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
     <div className={`themeFont ${cardDiv} ${display}`}>
       {!received ?
         <>
-          <h1>Response</h1>
-          {/* <br/> */}
+          <h1 className='text-2xl'>{text.heading}</h1>
           <p className={errorStyling}>{error ? 'Oops! Something went wrong. Please try again.' : ''}</p>
-          <form>
+          <form className='max-md:text-base font-["Arial"]'>
             <table>
               <tbody>
                 <tr>
-                  <td className='text-left'><label htmlFor='name'>Name:</label></td>
-                  <td className='text-left w-full max-md:w-44'>
+                  <td className='text-left'><label htmlFor='name'>{text.name}</label></td>
+                  <td className='text-left w-full max-md:w-[14rem]'>
                     <input name='name'
                            ref={nameRef}
                            readOnly
@@ -89,8 +92,8 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
                   </td>
                 </tr>
                 <tr>
-                  <td className='text-left'><label htmlFor='guests'>Guests:</label></td>
-                  <td className='text-left w-full max-md:w-44'>
+                  <td className='text-left'><label htmlFor='guests'>{text.guests}</label></td>
+                  <td className='text-left w-full max-md:w-[14rem]'>
                     <select name='guests'
                             value={guests}
                             className={guestsError}
@@ -100,28 +103,28 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation }) => {
                   </td>
                 </tr>
                 <tr>
-                  <td className='text-left'><label htmlFor='attending'>Attending:</label></td>
-                  <td className='text-left w-full max-md:w-44'>
+                  <td className='text-left'><label htmlFor='attending'>{text.attending}</label></td>
+                  <td className='text-left w-full max-md:w-[14rem]'>
                     <select name='attending'
                             value={attending}
                             onChange={handleChange}
                             className={attendingError}
                             required>
                       <option value='-' >-</option>
-                      <option value='true' >Yes</option>
+                      <option value='true' >{text.yes}</option>
                       <option value='false' >No</option>
                     </select>
                   </td>
                 </tr>
-                <Spotify attending={attending} songsRef={songsRef} handleChange={handleChange} buttons={buttons} />
+                <Spotify attending={attending} songsRef={songsRef} handleChange={handleChange} buttons={buttons} text={text} />
               </tbody>
             </table>
             <br/>
-            <input type='submit' className={buttons} onClick={handleSubmit}/>
+            <input type='submit' className={buttons} onClick={handleSubmit} disabled={disabled} value={text.submitButton}/>
           </form>
         </>
         :
-        <h1>Thank you!</h1>
+        <h1>{text.thankYou}</h1>
       }
     </div>
   )

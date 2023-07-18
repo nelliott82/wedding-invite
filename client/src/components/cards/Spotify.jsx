@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Spotify = ({ attending, songsRef, handleChange }) => {
+const Spotify = ({ attending, songsRef, handleChange, text }) => {
   const [spotify, setSpotify] = useState(false);
 
   const handleSpotifyChange = (e) => {
@@ -18,21 +18,21 @@ const Spotify = ({ attending, songsRef, handleChange }) => {
       {attending === 'true' ?
         <>
           <tr>
-            <td className='text-left'><label htmlFor='songs'>Do you have a Spotify Account?</label></td>
+            <td className='text-left'><label htmlFor='songs'>{text.spotifyAccount}</label></td>
             <td className='text-left w-full max-md:w-44'>
               <select onChange={handleSpotifyChange} defaultValue="-">
                 <option disabled value="-">-</option>
-                <option value='yes' >Yes</option>
+                <option value='yes' >{text.yes}</option>
                 <option value='no' >No</option>
               </select>
             </td>
           </tr>
           <tr>
-            <td className='text-left'><label htmlFor='songs'>Songs that make me dance:</label></td>
+            <td className='text-left'><label htmlFor='songs'>{text.songs}</label></td>
             <td className='text-center w-full max-md:w-44'>
               {spotify ?
-                <a className='font-mono max-md:text-base' href={process.env.SPOTIFY} target='_blank'>
-                  <u>Click here to add songs to our reception spotify playlist</u>
+                <a className='font-["Arial"] max-md:text-base' href={process.env.SPOTIFY} target='_blank'>
+                  <u>{text.linkText}</u>
                 </a>
                 :
                 <textarea name='songs'
