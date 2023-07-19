@@ -75,7 +75,8 @@ const App = () => {
                        login={login}
                        setLogin={setLogin}
                        cardDiv={cardDiv}
-                       buttons={buttons} />
+                       buttons={buttons}
+                       text={language.Invitation} />
               </>
             :
               <>

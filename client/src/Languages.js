@@ -58,6 +58,9 @@ module.exports = {
       linkText: 'Click here to add songs to our reception Spotify playlist',
       submitButton: 'Submit',
       thankYou: 'Thank you!'
+    },
+    Invitation: {
+      message: 'Hey! You are invited to our wedding! Please go to this link to see the information and scroll to the bottom to respond!'
     }
   },
   Spanish: {
@@ -119,6 +122,9 @@ module.exports = {
       linkText: 'Agrega temas a nuestro playlist de Spotify',
       submitButton: 'Enviar',
       thankYou: 'Gracias por formar parte de este día tan especial!'
+    },
+    Invitation: {
+      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda 👰🏻‍♀️🤵🏻🎉\nEn el link vas a encontrar toda la información 😉\n*Confírmanos tu asistencia* lo antes posible ✅\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! 🪩💃🏻🕺🏻🪩'
     }
   }
 }
