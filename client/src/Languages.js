@@ -124,7 +124,7 @@ module.exports = {
       thankYou: 'Gracias por formar parte de este día tan especial!'
     },
     Invitation: {
-      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda :woman_with_veil::skin-tone-2::person_in_tuxedo::skin-tone-2::tada:\nEn el link vas a encontrar toda la información :wink:\n*Confírmanos tu asistencia* lo antes posible :white_check_mark:\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! :mirror_ball::dancer::skin-tone-2::man_dancing::skin-tone-2::mirror_ball:\n'
+      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda U+1F470 U+1F3FC U+1F935 U+1F3FC U+1F389\nEn el link vas a encontrar toda la información U+1F609\n*Confírmanos tu asistencia* lo antes posible U+2705\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! U+1F387 U+1F483 U+1F3FC U+1F57A U+1F3FC U+1F387\n'
     }
   }
 }
