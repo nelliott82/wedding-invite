@@ -19,22 +19,12 @@ const Background = ({ cardDiv }) => {
   const elementStyle = {
     position: 'fixed',
     top: 0,
-    transform: `translateY(${(-scrollY * 0.15)}px)`,
-  };
-
-  const mobileElementStyle = {
-    position: 'fixed',
-    top: 0,
-    transform: 'translateY(0)',
+    transform: isMobile ? 'translateY(0)' : `translateY(${(-scrollY * 0.15)}px)`,
   };
 
   return (
     <div id="background" className="absolute inset-0" >
-      {isMobile ?
-        <div className="h-[250%] max-md:h-full w-full bg-cover bg-repeat bg-[url('./assets/eucalyptus.jpg')]" style={mobileElementStyle} />
-        :
-        <div className="h-[250%] max-md:h-full w-full bg-cover bg-repeat bg-[url('./assets/eucalyptus.jpg')]" style={elementStyle} />
-      }
+      <div className="h-[250%] max-md:h-full w-full bg-cover bg-repeat bg-[url('./assets/eucalyptus.jpg')]" style={elementStyle} />
     </div>
   )
 }
