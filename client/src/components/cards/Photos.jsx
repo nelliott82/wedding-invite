@@ -9,26 +9,26 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 // const photos = new Array(20).fill(0);
-const photos = ['https://i.postimg.cc/yWHNZty9/1.jpg',
-                'https://i.postimg.cc/dhLQFYJM/2.jpg',
-                'https://i.postimg.cc/dDjVm65f/3.jpg',
-                'https://i.postimg.cc/ZW2bKMqW/4.jpg',
-                'https://i.postimg.cc/1fR5WFT3/5.jpg',
-                'https://i.postimg.cc/w7Wxnv8c/6.jpg',
-                'https://i.postimg.cc/ftjDCWfd/7.jpg',
-                'https://i.postimg.cc/FfS9fVfD/8.jpg',
-                'https://i.postimg.cc/k6d7WRK9/9.jpg',
-                'https://i.postimg.cc/PvXhRGSR/10.jpg',
-                'https://i.postimg.cc/NLDQrMMq/11.jpg',
-                'https://i.postimg.cc/9rfCPhR4/12.jpg',
-                'https://i.postimg.cc/7fQDmW0K/13.jpg',
-                'https://i.postimg.cc/HrqmC8S5/14.jpg',
-                'https://i.postimg.cc/bZDPM9Rp/15.jpg',
-                'https://i.postimg.cc/kVWmMMZH/16.jpg',
-                'https://i.postimg.cc/jwKrD0YS/17.jpg',
-                'https://i.postimg.cc/4nfgZg18/18.jpg',
-                'https://i.postimg.cc/hQtW0LjF/19.jpg',
-                'https://i.postimg.cc/5Y3Wv7fq/20.jpg']
+const photos = ['https://i.postimg.cc/T2y5ZXyk/1.jpg',
+                'https://i.postimg.cc/bwRZQyMv/2.jpg',
+                'https://i.postimg.cc/MZhfwrVz/3.jpg',
+                'https://i.postimg.cc/q7MzQfVx/4.jpg',
+                'https://i.postimg.cc/dtrkVmjr/5.jpg',
+                'https://i.postimg.cc/VkwSrrKT/6.jpg',
+                'https://i.postimg.cc/C195FzZc/7.jpg',
+                'https://i.postimg.cc/zft3cdqZ/8.jpg',
+                'https://i.postimg.cc/rmDzXSpd/9.jpg',
+                'https://i.postimg.cc/Wzr3tTgT/10.jpg',
+                'https://i.postimg.cc/ncbrg9fz/11.jpg',
+                'https://i.postimg.cc/nc4rJVn1/12.jpg',
+                'https://i.postimg.cc/cLdH4qHG/13.jpg',
+                'https://i.postimg.cc/1zt3wpwW/14.jpg',
+                'https://i.postimg.cc/CxJKRvBB/15.jpg',
+                'https://i.postimg.cc/vmNHzcvG/16.jpg',
+                'https://i.postimg.cc/26LjXrHh/17.jpg',
+                'https://i.postimg.cc/59vNB9QM/18.jpg',
+                'https://i.postimg.cc/C5jhSJpK/19.jpg',
+                'https://i.postimg.cc/sxFjkq88/20.jpg']
 
 export default function Photos({ text }) {
 
