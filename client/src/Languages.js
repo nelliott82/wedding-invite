@@ -128,7 +128,7 @@ module.exports = {
       thankYou: 'Gracias por formar parte de este día tan especial!'
     },
     Invitation: {
-      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda 👰🏻‍♀️🤵🏻🎉\nEn el link vas a encontrar toda la información 😉\n\n*Confírmanos tu asistencia* lo antes posible ✅\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! 🪩💃🏻🕺🏻🪩\n\n'
+      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda 👰🏻‍♀️🤵🏻🎉\nEn el link vas a encontrar toda la información 😉\n\n*Confírmanos tu asistencia* lo antes posible ✅\nY no te olvides de darnos las sugerencias de *que temas poner para bailar* esa noche! 🪩💃🏻🕺🏻🪩\n\n'
     }
   }
 }
