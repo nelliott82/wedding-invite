@@ -129,7 +129,7 @@ module.exports = {
   delete: function (data, callback) {
     db.connection.connect();
 
-    const deletion = `DELETE FROM invitees WHERE id = ${data.id} AND EXISTS (SELECT * FROM admin WHERE uuid = '${data.uuid}')`;
+    const deletion = `DELETE FROM invitees WHERE id = ${data.id} AND EXISTS (SELECT * FROM admin WHERE session_id = '${data.session_id}')`;
     db.connection.query(deletion, null, (err, results) => {
       if (err) {
         callback(err);

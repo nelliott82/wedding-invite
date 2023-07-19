@@ -87,8 +87,7 @@ module.exports = {
     });
   },
   delete: function (req, res) {
-    const uuid = req.cookies.uuid;
-    const data = { id: req.params.id, uuid };
+    const data = { id: req.params.id, session_id: req.cookies.session_id };
 
     models.admin.delete(data, function(err, results) {
       if (err) {

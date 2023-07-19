@@ -9,10 +9,12 @@ const Invitations = ({ cardDiv, invitations, setInvitations, text }) => {
 
     axios.delete(`/invitations/admin/${id}`)
       .then((response) => {
+        console.log(response)
         const invitationsFiltered = invitations.filter(x => x.id !== id);
         setInvitations(invitationsFiltered);
       })
       .catch((err) => {
+        console.log(err)
         // Handle Error
       })
   }
