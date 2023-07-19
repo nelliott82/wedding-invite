@@ -31,7 +31,7 @@ export default function Photos({ text }) {
       >
         {photos.map((x, i) =>
           <SwiperSlide key={i}>
-            <img src={`./assets/photos/${i + 1}.jpg`}/>
+            <img src={`https://github.com/nelliott82/wedding-invite/blob/main/client/dist/assets/Photos/${i + 1}.jpg`}/>
           </SwiperSlide>
         )}
       </Swiper>
@@ -40,7 +40,7 @@ export default function Photos({ text }) {
       </p>
       <div className='flex flex-wrap justify-evenly content-evenly pt-[1rem] font-["Arial"] max-md:text-[1.1rem]'>
         <img className='h-[3rem] w-[3rem]' src='./assets/insta.png'></img>
-        <a className='self-center' href='https://www.instagram.com/explore/tags/summer/' target='_blank'> <u>#PerlaNikko</u>
+        <a className='self-center' href='https://www.instagram.com/explore/tags/perlanikko/' target='_blank'> <u>#PerlaNikko</u>
         </a>
       </div>
     </>
