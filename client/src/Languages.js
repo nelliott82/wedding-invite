@@ -124,7 +124,7 @@ module.exports = {
       thankYou: 'Gracias por formar parte de este día tan especial!'
     },
     Invitation: {
-      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda U+1F470 U+1F3FC U+1F935 U+1F3FC U+1F389\nEn el link vas a encontrar toda la información U+1F609\n*Confírmanos tu asistencia* lo antes posible U+2705\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! U+1F387 U+1F483 U+1F3FC U+1F57A U+1F3FC U+1F387\n'
+      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda %F0%9F%91%B0%F0%9F%8F%BC%F0%9F%A4%B5%F0%9F%8F%BC%F0%9F%8E%89\nEn el link vas a encontrar toda la información %F0%9F%98%89\n*Confírmanos tu asistencia* lo antes posible %E2%9C%85\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! %F0%9F%8E%87%F0%9F%92%83%F0%9F%8F%BC%F0%9F%95%BA%F0%9F%8F%BC%F0%9F%8E%87\n'
     }
   }
 }
