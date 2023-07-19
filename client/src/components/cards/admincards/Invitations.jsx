@@ -33,7 +33,7 @@ const Invitations = ({ cardDiv, invitations, setInvitations, text }) => {
        </thead>
        <tbody>
         {invitations.map((x, i) => {
-          let whatsAppMessage = `${text} https://${window.location.host}/invited/${x.uuid}`
+          let whatsAppMessage = `${text}https://${window.location.host}/invited/${x.uuid}`
 
           return (
             <tr key={x.uuid}>

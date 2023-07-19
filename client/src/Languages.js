@@ -60,7 +60,7 @@ module.exports = {
       thankYou: 'Thank you!'
     },
     Invitation: {
-      message: 'Hey! You are invited to our wedding! Please go to this link to see the information and scroll to the bottom to respond!'
+      message: 'Hey! You are invited to our wedding! Please go to this link to see the information and scroll to the bottom to respond!\n'
     }
   },
   Spanish: {
@@ -124,7 +124,7 @@ module.exports = {
       thankYou: 'Gracias por formar parte de este día tan especial!'
     },
     Invitation: {
-      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda 👰🏻‍♀️🤵🏻🎉\nEn el link vas a encontrar toda la información 😉\n*Confírmanos tu asistencia* lo antes posible ✅\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! 🪩💃🏻🕺🏻🪩'
+      message: 'Con mucha alegría, te invitamos a que formes parte de nuestra boda :woman_with_veil::skin-tone-2::person_in_tuxedo::skin-tone-2::tada:\nEn el link vas a encontrar toda la información :wink:\n*Confírmanos tu asistencia* lo antes posible :white_check_mark:\nY no te olvides de darnos las a sugerencias de *que temas poner para bailar* esa noche! :mirror_ball::dancer::skin-tone-2::man_dancing::skin-tone-2::mirror_ball:\n'
     }
   }
 }
