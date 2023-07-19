@@ -10,9 +10,10 @@ import axios from 'axios';
 
 const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
   const [invitations, setInvitations] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const getInvitations = () => {
+    setLoading(true);
     const pathname = window.location.pathname.split('/').filter(x => x);
 
     axios.get(`/invitations/admin/${pathname[1]}`)
@@ -21,6 +22,7 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err)
         // Handle Error
       })
   }

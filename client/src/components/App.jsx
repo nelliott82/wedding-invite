@@ -69,21 +69,21 @@ const App = () => {
           <Loading/>
           :
           <div id='content' className='flex flex-wrap flex-col pt-16 relative overflow-y justify-center content-center overflow-y-scroll'>
-            <div className='w-[7rem] fixed top-0 right-0 p-2 bg-slate-200 z-10 flex justify-evenly'>
-              <span onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
-              <span> </span>
-              <span onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
-            </div>
             {access ?
               <>
                 <Admin display={display}
-                      login={login}
-                      setLogin={setLogin}
-                      cardDiv={cardDiv}
-                      buttons={buttons} />
+                       login={login}
+                       setLogin={setLogin}
+                       cardDiv={cardDiv}
+                       buttons={buttons} />
               </>
             :
               <>
+                <div className='w-[7rem] fixed top-0 right-0 p-2 bg-slate-200 z-10 flex justify-evenly'>
+                  <span onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
+                  <span> </span>
+                  <span onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
+                </div>
                 <SaveTheDate cardDiv={cardDiv} text={language.SaveTheDate}/>
                 <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
                 <Ceremony cardDiv={cardDiv} buttons={buttons} text={language.Ceremony}/>
