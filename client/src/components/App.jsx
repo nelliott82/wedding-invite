@@ -53,7 +53,7 @@ const App = () => {
           }
         })
         .catch((err) => {
-
+          setLoading(false);
         });
     } else {
       setAccess(false);
