@@ -34,7 +34,6 @@ const CreateInvite = ({ cardDiv, setInvitations, buttons }) => {
           setInvitations(response.data);
         })
         .catch((err) => {
-          console.log(err)
           // Handle error
         })
     }

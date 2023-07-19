@@ -7,7 +7,6 @@ module.exports = {
     const data = { ...req.params, ...req.cookies };
 
     models.admin.verify(data, function(err, results) {
-      console.log(err);
       if (err || (req.params.uuid !== '123' && results[0].hashword)) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));
@@ -78,8 +77,6 @@ module.exports = {
     const data = { ...req.body, ...req.cookies };
 
     models.admin.insert(data, function(err, results) {
-      // console.log(err)
-      // console.log(results)
       if (err) {
         res.statusCode = 400;
         res.end(JSON.stringify(err));

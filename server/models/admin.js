@@ -60,8 +60,6 @@ module.exports = {
                               WHERE uuid = '${data.uuid}'`;
 
               db.connection.query(update, null, (err, results) => {
-                console.log(err)
-                console.log(results)
                 if (err) {
                   callback(err);
                 } else if (!results.length) {
@@ -118,7 +116,6 @@ module.exports = {
       if (err) {
         callback(err);
       } else {
-        console.log(results)
         db.connection.query(`SELECT * FROM invitees`, null, (err, results) => {
           if (err) {
             callback(err);

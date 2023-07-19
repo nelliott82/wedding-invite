@@ -4,7 +4,6 @@ const url = require('url');
 module.exports = {
   get: function (req, res) {
     const uuid = req.params.uuid;
-    console.log(uuid)
     models.invitees.getOne(uuid, function(err, results) {
       if (err) {
         res.statusCode = 400;
