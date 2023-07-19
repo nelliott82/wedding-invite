@@ -8,7 +8,7 @@ import Responded from './admincards/Responded.jsx';
 import Songs from './admincards/Songs.jsx';
 import axios from 'axios';
 
-const Admin = ({ display, login, setLogin, cardDiv, buttons, text }) => {
+const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
   const [invitations, setInvitations] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -46,7 +46,7 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons, text }) => {
             <>
               <Navbar/>
               <CreateInvite cardDiv={cardDiv} setInvitations={setInvitations} buttons={buttons} />
-              <Invitations cardDiv={cardDiv} invitations={invitations} setInvitations={setInvitations} text={text.message} />
+              <Invitations cardDiv={cardDiv} invitations={invitations} setInvitations={setInvitations} />
               <Responded cardDiv={cardDiv} invitations={invitations} />
               <Songs cardDiv={cardDiv} invitations={invitations} />
             </>

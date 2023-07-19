@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import Languages from '../../../Languages.js';
 import axios from 'axios';
 
-const Invitations = ({ cardDiv, invitations, setInvitations, text }) => {
+const Invitations = ({ cardDiv, invitations, setInvitations }) => {
   const columnClass = 'text-left w-[28rem] max-md:w-44';
 
   const handleDelete = (e, id) => {
@@ -35,6 +36,12 @@ const Invitations = ({ cardDiv, invitations, setInvitations, text }) => {
        </thead>
        <tbody>
         {invitations.map((x, i) => {
+          let text;
+          if (x.language) {
+            text = Languages.English.Invitation.message;
+          } else {
+            text = Languages.Spanish.Invitation.message;
+          }
           let whatsAppMessage = `${text}https://${window.location.host}/invited/${x.uuid}`
 
           return (
