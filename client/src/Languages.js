@@ -70,7 +70,7 @@ module.exports = {
         days: 'Días',
         hours: 'Hs',
         mins: 'Min',
-        secs: 'S'
+        secs: 'Seg'
       }
     },
     PhotoReel: {
