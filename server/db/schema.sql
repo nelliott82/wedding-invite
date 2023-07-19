@@ -25,6 +25,3 @@ CREATE TABLE `invitees`(
   `language` BOOLEAN NOT NULL,
   `songs` TEXT
 );
-
-
-INSERT INTO admin (`uuid`, `session_ends`, `email`) VALUES ('817ff9b2-e71d-4085-8da7-cbb140fdb53b', '2023-09-28', 'nikkoelliott@gmail.com')

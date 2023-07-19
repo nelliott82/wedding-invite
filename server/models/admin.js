@@ -21,6 +21,7 @@ module.exports = {
     const email = sqlstring.escape(data.email);
 
     db.connection.query(`SELECT * FROM admin WHERE email = ${email}`, null, (err, results) => {
+
       if (err) {
         callback(err);
       } else if (!results.length) {
@@ -59,8 +60,12 @@ module.exports = {
                               WHERE uuid = '${data.uuid}'`;
 
               db.connection.query(update, null, (err, results) => {
+                console.log(err)
+                console.log(results)
                 if (err) {
                   callback(err);
+                } else if (!results.length) {
+                  callback('Access denied');
                 } else {
                   callback(null, results, sessionId);
                 }

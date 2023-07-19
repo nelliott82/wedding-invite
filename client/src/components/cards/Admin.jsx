@@ -22,7 +22,6 @@ const Admin = ({ display, login, setLogin, cardDiv, buttons }) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err)
         // Handle Error
       })
   }
