@@ -988,7 +988,6 @@ li {
   font-size: 1.5em;
   list-style-type: none;
   padding: 0.5em;
-  /* text-transform: uppercase; */
   color: #777b6a;
 }
 
@@ -1006,6 +1005,10 @@ li span {
   li span {
     font-size: calc(2.375rem * var(--smaller));
   }
+}
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
 }
 
 .hover\:bg-emerald-200:hover {

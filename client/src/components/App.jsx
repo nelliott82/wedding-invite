@@ -80,9 +80,9 @@ const App = () => {
             :
               <>
                 <div className='w-[7rem] fixed top-0 right-0 p-2 bg-slate-200 z-10 flex justify-evenly'>
-                  <span onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
+                  <span className='hover:cursor-pointer' onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
                   <span> </span>
-                  <span onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
+                  <span className='hover:cursor-pointer' onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
                 </div>
                 <SaveTheDate cardDiv={cardDiv} text={language.SaveTheDate}/>
                 <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
