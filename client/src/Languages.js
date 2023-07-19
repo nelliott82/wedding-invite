@@ -21,14 +21,16 @@ module.exports = {
       where: 'Where: Vicaría Castrense de Asunción',
       locationButton: 'Location',
       when: 'When: 7:30 PM to 8:00 PM',
-      calendarButton: 'Add to Calendar'
+      calendarButton: 'Add to Calendar',
+      calendarLink: 'https://calndr.link/e/mbcGiCD8mz?s=google'
     },
     Reception: {
       heading: 'Reception',
       where: 'Where: Hotel La Misión',
       locationButton: 'Location',
       when: 'When: 8:30 PM to 12:00 AM',
-      calendarButton: 'Add to Calendar'
+      calendarButton: 'Add to Calendar',
+      calendarLink: 'https://calndr.link/e/GqjWmz2BRx?s=google'
     },
     GeneralInfo: {
       heading: 'General Info',
@@ -85,14 +87,16 @@ module.exports = {
       where: 'Vicaría Castrense de Asunción',
       locationButton: 'Ver ubicación',
       when: '19:30 a 20:00 HS',
-      calendarButton: 'Agregar al Calendario'
+      calendarButton: 'Agregar al Calendario',
+      calendarLink: 'https://calndr.link/e/BNh91DxG0u?s=google'
     },
     Reception: {
       heading: 'Celebración del Brindis',
       where: 'Hotel La Misión',
       locationButton: 'Ver ubicación',
       when: '20:30 a 00 HS',
-      calendarButton: 'Agregar al Calendario'
+      calendarButton: 'Agregar al Calendario',
+      calendarLink: 'https://calndr.link/e/XPhSIalqL1?s=google'
     },
     GeneralInfo: {
       heading: 'Informacíon General',

@@ -18,6 +18,9 @@ const Reception = ({ cardDiv, buttons, text }) => {
           </div>
         </div>
       </div>
+      <a href={text.calendarLink} target='_blank'>
+        <button className={`mt-[1rem] ${buttons}`}>{text.calendarButton}</button>
+      </a>
     </div>
   )
 }
