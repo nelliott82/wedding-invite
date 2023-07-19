@@ -4,9 +4,12 @@ const sqlstring = require('sqlstring');
 module.exports = {
   getOne: function (uuid, callback) {
     db.connection.connect();
+    console.log(uuid)
     db.connection.query(`SELECT name, guests, language FROM invitees WHERE uuid = '${uuid}' AND attending IS NULL`, null, (err, results) => {
       if (err) {
         callback(err);
+      } else if (!results.length) {
+        callback('No results');
       } else {
         callback(null, results);
       }

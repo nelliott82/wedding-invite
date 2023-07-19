@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 const Background = ({ cardDiv }) => {
   const [scrollY, setScrollY] = useState(0);
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    !isMobile && window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll, { passive: true });
     };
   }, []);
 
-  const isMobile = window.innerWidth <= 768;
 
   const elementStyle = {
     position: 'fixed',

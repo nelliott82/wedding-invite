@@ -43,6 +43,7 @@ const App = () => {
       setAccess(false);
       axios.get(`/invitations/invitees/${pathname[1]}`)
         .then((response) => {
+          console.log(response)
           if (response.data.valid) {
             setInvited(true);
             setInvitation(response.data);
