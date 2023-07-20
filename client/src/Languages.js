@@ -102,7 +102,7 @@ module.exports = {
       heading: 'Informacíon General',
       Gifts: {
         heading:  'Obsequio',
-        message: 'Tu presencia es el mayor presente que podemos recibir. Si sientes ofrecernos algo más, amablemente te pedimos realices una transferencias en lugar de obsequios físicos, en la siguiente caja de ahorro.',
+        message: 'Tu presencia es el mayor regalo que podemos recibir. Si sientes ofrecernos algo más, amablemente te pedimos realices una transferencias en lugar de obsequios físicos, en la siguiente caja de ahorro.',
         TransferInfo: {
           line1: 'Caja de Ahorro # 4445334',
           line2: 'Sudameris Bank SAECA',
