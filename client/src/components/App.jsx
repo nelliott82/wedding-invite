@@ -88,7 +88,7 @@ const App = () => {
                 <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
                 <Ceremony cardDiv={cardDiv} buttons={buttons} text={language.Ceremony}/>
                 <Reception cardDiv={cardDiv} buttons={buttons} text={language.Reception}/>
-                <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo}/>
+                <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo} invited={invited}/>
                 <ResponseForm cardDiv={cardDiv}
                               buttons={buttons}
                               invited={invited}
