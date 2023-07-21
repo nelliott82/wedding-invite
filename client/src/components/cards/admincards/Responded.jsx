@@ -37,6 +37,7 @@ const Responded = ({ cardDiv, invitations }) => {
       <table>
        <thead>
         <tr>
+          <td className={'text-left'}>#</td>
           <td className={columnClass}>Name</td>
           <td className={columnClass}>Contact</td>
           <td className={columnClass}>Guests Coming</td>
@@ -48,6 +49,7 @@ const Responded = ({ cardDiv, invitations }) => {
 
           return (
             <tr key={x.uuid}>
+              <td className={'text-left'}>{i + 1}</td>
               <td className={columnClass}>{x.name}</td>
               <td className={columnClass}>{x.contact}</td>
               <td className={columnClass}>{x.attending === 1 ? x.guestsResponse : '0'}</td>
@@ -56,6 +58,7 @@ const Responded = ({ cardDiv, invitations }) => {
           )
         })}
         <tr>
+          <td/>
           <td/>
           <td className={columnClass}>Total Attending:</td>
           <td className={columnClass}>

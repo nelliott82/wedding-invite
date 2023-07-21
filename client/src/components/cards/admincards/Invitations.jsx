@@ -10,12 +10,10 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
 
     axios.delete(`/invitations/admin/${id}`)
       .then((response) => {
-        console.log(response)
         const invitationsFiltered = invitations.filter(x => x.id !== id);
         setInvitations(invitationsFiltered);
       })
       .catch((err) => {
-        console.log(err)
         // Handle Error
       })
   }
@@ -26,12 +24,13 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
       <table>
        <thead>
         <tr>
+          <td className={'text-left'}>#</td>
           <td className={columnClass}>Name</td>
           <td className={columnClass}>Contact</td>
-          <td className={columnClass}>Guests</td>
+          <td className={'text-left'}>Guests</td>
           <td className={columnClass}>Invitation Link</td>
-          <td className={columnClass}>Responded</td>
-          <td className={columnClass}>Delete</td>
+          <td className={'text-left'}>Responded</td>
+          <td className={'text-left'}>Delete</td>
         </tr>
        </thead>
        <tbody>
@@ -46,15 +45,16 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
 
           return (
             <tr key={x.uuid}>
+              <td className={'text-left'}>{i + 1}</td>
               <td className={columnClass}>{x.name}</td>
               <td className={columnClass}>{x.contact}</td>
-              <td className={columnClass}>{x.guests}</td>
+              <td className={'text-left'}>{x.guests}</td>
               <td className={columnClass}>
                 <a href={`https://api.whatsapp.com/send/?phone=${x.contact}&text=${encodeURIComponent(whatsAppMessage)}`} target='_blank'>
                   <u>Link</u>
                 </a>
               </td>
-              <td className={columnClass}>{x.attending !== null ? 'Yes' : 'No'}</td>
+              <td className={'text-left'}>{x.attending !== null ? 'Yes' : 'No'}</td>
               <td className='text-center' onClick={(e) => handleDelete(e, x.id)}>
                 <p className='cursor-pointer'>X</p>
               </td>
@@ -62,6 +62,7 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
           )
         })}
         <tr>
+          <td/>
           <td/>
           <td className={columnClass}>Total Invited:</td>
           <td className={columnClass}>
