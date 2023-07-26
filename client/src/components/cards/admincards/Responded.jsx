@@ -7,7 +7,6 @@ const Responded = ({ cardDiv, invitations }) => {
   const columnClass = 'text-left w-[28rem] max-md:w-44';
 
   const handleFilter = (e) => {
-    // e.preventDefault();
 
     if (e.target.value === 'all') {
       setResponded(invitations.filter(x => x.attending !== null));

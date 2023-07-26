@@ -1,9 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Languages from '../../../Languages.js';
 import axios from 'axios';
 
 const Invitations = ({ cardDiv, invitations, setInvitations }) => {
+  const [filteredInvites, setFilteredInvites] = useState([]);
+  const [filter, setFilter] = useState('all');
   const columnClass = 'text-left w-[28rem] max-md:w-44';
+
+  const handleFilter = (e) => {
+
+    if (e.target.value === 'all') {
+      setFilteredInvites(invitations);
+      setFilter('all');
+    } else if (e.target.value === 'yes') {
+      setFilteredInvites(invitations.filter(x => x.attending));
+      setFilter('yes');
+    } else {
+      setFilteredInvites(invitations.filter(x => x.attending === null));
+      setFilter('no');
+    }
+  }
 
   const handleDelete = (e, id) => {
     e.preventDefault();
@@ -18,9 +34,19 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
       })
   }
 
+  useEffect(() => {
+    handleFilter({ target: { value: filter }});
+  }, [invitations]);
+
   return (
     <div className={cardDiv}>
       <h1>Invitations</h1>
+      <label htmlFor='filter'>Filter:</label>
+      <select onChange={handleFilter}>
+        <option value='all' >All</option>
+        <option value='yes' >Yes</option>
+        <option value='no' >No</option>
+      </select>
       <table>
        <thead>
         <tr>
@@ -34,7 +60,7 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
         </tr>
        </thead>
        <tbody>
-        {invitations.map((x, i) => {
+        {filteredInvites.map((x, i) => {
           let text;
           if (x.language) {
             text = Languages.English.Invitation.message;
@@ -66,7 +92,7 @@ const Invitations = ({ cardDiv, invitations, setInvitations }) => {
           <td/>
           <td className={columnClass}>Total Invited:</td>
           <td className={columnClass}>
-            {invitations.reduce((accum, x) => {
+            {filteredInvites.reduce((accum, x) => {
               accum = accum + parseInt(x.guests);
               return accum;
             }, 0)}
