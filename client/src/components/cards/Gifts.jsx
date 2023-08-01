@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Gifts = ({ cardDiv, text, invited }) => {
+const Gifts = ({ cardDiv, text, giftInfo }) => {
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Gifts = ({ cardDiv, text, invited }) => {
             {text.message}
           </p>
           <br/>
-          {invited ?
+          {giftInfo ?
             <div className='max-md:text-base font-["Arial"]'>
               <p>
                 {text.TransferInfo.line1}

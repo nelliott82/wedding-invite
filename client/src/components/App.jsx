@@ -17,6 +17,7 @@ const App = () => {
   const [display, setDisplay] = useState('hidden');
   const [login, setLogin] = useState(true);
   const [invited, setInvited] = useState(false);
+  const [giftInfo, setGiftInfo] = useState(false);
   const [invitation, setInvitation] = useState({});
   const [language, setLanguage] = useState(Languages.Spanish);
   const cardDiv = 'relative bg-green-200 bg-opacity-75 hover:bg-opacity-90 w-10/12 inline-block text-center p-5 mb-12';
@@ -41,6 +42,7 @@ const App = () => {
         });
     } else if (pathname[0] === 'invited') {
       setAccess(false);
+      setGiftInfo(true);
       axios.get(`/invitations/invitees/${pathname[1]}`)
         .then((response) => {
           if (response.data.valid) {
@@ -88,7 +90,7 @@ const App = () => {
                 <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
                 <Ceremony cardDiv={cardDiv} buttons={buttons} text={language.Ceremony}/>
                 <Reception cardDiv={cardDiv} buttons={buttons} text={language.Reception}/>
-                <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo} invited={invited}/>
+                <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo} giftInfo={giftInfo}/>
                 <ResponseForm cardDiv={cardDiv}
                               buttons={buttons}
                               invited={invited}

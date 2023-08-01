@@ -2,7 +2,7 @@ import React from 'react';
 import Gifts from './Gifts.jsx';
 import Dress from './Dress.jsx';
 
-const GeneralInfo = ({ cardDiv, text, invited }) => {
+const GeneralInfo = ({ cardDiv, text, giftInfo }) => {
 
   return (
     <div className={`themeFont ${cardDiv}`}>
@@ -14,7 +14,7 @@ const GeneralInfo = ({ cardDiv, text, invited }) => {
         <img src="./assets/linebreak.png" className="w-[60vw]"/>
       </div>
       <br/>
-      <Gifts text={text.Gifts} invited={invited} />
+      <Gifts text={text.Gifts} giftInfo={giftInfo} />
     </div>
   )
 }
