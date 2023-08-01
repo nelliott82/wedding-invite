@@ -31,7 +31,7 @@ const Spotify = ({ attending, songsRef, handleChange, text }) => {
             <td className='text-left'><label htmlFor='songs'>{text.songs}</label></td>
             <td className='text-center w-full max-md:w-44'>
               {spotify ?
-                <a className='font-["Arial"] max-md:text-base' href='https://open.spotify.com/playlist/4nOxLjjo4cX4pjAR4rYs1L?si=TQu-V_DLR_-qmM9eKX57Aw&pt=cc5ab9286368b1f018aa9cea63539f36' target='_blank'>
+                <a className='font-["Arial"] max-md:text-base' href='https://open.spotify.com/playlist/4nOxLjjo4cX4pjAR4rYs1L?si=Fc8QZEv4T8CATRDpp1NBew&pt=e72509481d04ff61efb9243670dc3d61' target='_blank'>
                   <u>{text.linkText}</u>
                 </a>
                 :

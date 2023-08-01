@@ -41,10 +41,10 @@ const App = () => {
         });
     } else if (pathname[0] === 'invited') {
       setAccess(false);
+      setInvited(true);
       axios.get(`/invitations/invitees/${pathname[1]}`)
         .then((response) => {
           if (response.data.valid) {
-            setInvited(true);
             setInvitation(response.data);
             if (response.data.language) {
               setLanguage(Languages.English);
