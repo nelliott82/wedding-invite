@@ -70,38 +70,40 @@ const App = () => {
         {loading ?
           <Loading/>
           :
-          <div id='content' className='flex flex-wrap flex-col pt-16 relative overflow-y justify-center content-center overflow-y-scroll'>
-            {access ?
-              <>
-                <Admin display={display}
-                       login={login}
-                       setLogin={setLogin}
-                       cardDiv={cardDiv}
-                       buttons={buttons} />
-              </>
-            :
-              <>
-                <div className='w-[7rem] fixed top-0 right-0 p-2 bg-slate-200 z-10 flex justify-evenly'>
-                  <span className='hover:cursor-pointer' onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
-                  <span> </span>
-                  <span className='hover:cursor-pointer' onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
-                </div>
-                <SaveTheDate cardDiv={cardDiv} text={language.SaveTheDate}/>
-                <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
-                <Ceremony cardDiv={cardDiv} buttons={buttons} text={language.Ceremony}/>
-                <Reception cardDiv={cardDiv} buttons={buttons} text={language.Reception}/>
-                <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo} giftInfo={giftInfo}/>
-                <ResponseForm cardDiv={cardDiv}
-                              buttons={buttons}
-                              invited={invited}
-                              invitation={invitation}
-                              text={language.ResponseForm} />
-              </>
-            }
-          </div>
+          <>
+            <div id='content' className='flex flex-wrap flex-col pt-16 relative overflow-y justify-center content-center overflow-y-scroll'>
+              {access ?
+                <>
+                  <Admin display={display}
+                        login={login}
+                        setLogin={setLogin}
+                        cardDiv={cardDiv}
+                        buttons={buttons} />
+                </>
+              :
+                <>
+                  <div className='w-[7rem] fixed top-0 right-0 p-2 bg-slate-200 z-10 flex justify-evenly'>
+                    <span className='hover:cursor-pointer' onClick={() => handleClick('English')}>🇺🇸<u>{language.english}</u></span>
+                    <span> </span>
+                    <span className='hover:cursor-pointer' onClick={() => handleClick('Spanish')}>🇵🇾<u>{language.spanish}</u></span>
+                  </div>
+                  <SaveTheDate cardDiv={cardDiv} text={language.SaveTheDate}/>
+                  <PhotoReel cardDiv={cardDiv} text={language.PhotoReel}/>
+                  <Ceremony cardDiv={cardDiv} buttons={buttons} text={language.Ceremony}/>
+                  <Reception cardDiv={cardDiv} buttons={buttons} text={language.Reception}/>
+                  <GeneralInfo cardDiv={cardDiv} text={language.GeneralInfo} giftInfo={giftInfo}/>
+                  <ResponseForm cardDiv={cardDiv}
+                                buttons={buttons}
+                                invited={invited}
+                                invitation={invitation}
+                                text={language.ResponseForm} />
+                </>
+              }
+            </div>
+            <a href='https://dryicons.com/free-icons/church'> Icon by Dryicons </a>
+            <a href='https://www.vecteezy.com/free-vector/line-break'>Line Break Vectors by Vecteezy</a>
+          </>
         }
-        <a href='https://dryicons.com/free-icons/church'> Icon by Dryicons </a>
-        <a href='https://www.vecteezy.com/free-vector/line-break'>Line Break Vectors by Vecteezy</a>
       </div>
     </>
   )
