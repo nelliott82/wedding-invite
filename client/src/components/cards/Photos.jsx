@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
-// const photos = new Array(20).fill(0);
 const photos = ['https://i.postimg.cc/T2y5ZXyk/1.jpg',
                 'https://i.postimg.cc/bwRZQyMv/2.jpg',
                 'https://i.postimg.cc/MZhfwrVz/3.jpg',

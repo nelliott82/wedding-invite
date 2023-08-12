@@ -78,7 +78,7 @@ const ResponseForm = ({ cardDiv, buttons, invited, invitation, text }) => {
       {!received ?
         <>
           <h1 className='text-2xl'>{text.heading}</h1>
-          <p className={errorStyling}>{error ? 'Oops! Something went wrong. Please try again.' : ''}</p>
+          <p className={errorStyling}>{error ? text.error : ''}</p>
           <form className='max-md:text-base font-["Arial"]'>
             <table>
               <tbody>
